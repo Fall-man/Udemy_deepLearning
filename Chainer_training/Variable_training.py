@@ -15,5 +15,14 @@ print(x.data)
 
 # 計算
 # yもVariableオブジェクト
-y = x * 2 + 1
+# y = x * 2 + 1
+y = x ** 2 + 2* x +1
 print(y.data)
+
+# 微分値を求める
+# 要素が複数の場合はy.gradに初期値が必要
+y.grad = np.ones((2, 3), dtype=np.float32)
+# y->xと遡って微分値を求める
+y.backward()
+print(x.grad)
+
